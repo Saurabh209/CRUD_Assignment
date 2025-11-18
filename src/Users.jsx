@@ -58,7 +58,7 @@ export default function Users() {
     async function HandleTodoDelete(username) {
         try {
             setLoading(true);
-            await axios.delete(`/delete/${username}`, { withCredentials: true });
+            await axios.delete(`https://lore-of-the-lands-between.onrender.com/delete/${username}`, { withCredentials: true });
 
             // Remove the deleted user from state so UI updates immediately
             setAllUsers(prev => prev.filter(user => user.userName !== username));
@@ -71,7 +71,6 @@ export default function Users() {
             setLoading(false);
         }
     }
-
     const HandleImageVisibility = () => {
         setConfirmTodoCardDeleteButtonVisibility(true)
     }
@@ -81,7 +80,7 @@ export default function Users() {
 
         try {
             const response = await axios.post(
-                '/add/fakeUser',
+                'https://lore-of-the-lands-between.onrender.com/add/fakeUser',
                 { userName, fullName, email, phone },
                 { withCredentials: true }
             );
@@ -102,7 +101,7 @@ export default function Users() {
 
         try {
             const response = await axios.put(
-                '/updateUser', // backend route
+                'https://lore-of-the-lands-between.onrender.com/updateUser', // backend route
                 { userName, fullName, email, phone, _id },
                 { withCredentials: true }
             );
@@ -118,7 +117,6 @@ export default function Users() {
             setLoading(false);
         }
     };
-
     const HandleUpdate = (items) => {
         const { userName, fullName, email, phone, _id } = items
         setUserName(userName)
@@ -128,7 +126,6 @@ export default function Users() {
         setId(_id)
         setupdating(true)
         setIsActive(true)
-
     }
 
     return (
