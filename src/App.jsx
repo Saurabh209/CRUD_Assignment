@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`/get/FakeUsers`, {
+      .get(`https://lore-of-the-lands-between.onrender.com/get/FakeUsers`, {
         withCredentials: true,
       })
       .then((res) => {
